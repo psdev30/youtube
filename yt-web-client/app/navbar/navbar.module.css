@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.nav img {
+  height: 40px; /* Adjust as needed */
+  width: auto; /* Maintain aspect ratio */
+}
