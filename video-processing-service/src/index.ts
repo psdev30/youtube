@@ -24,7 +24,9 @@ app.post('/process-video', async (req, res) => {
     const message = Buffer.from(req.body.message.data, 'base64').toString(
       'utf8'
     );
+    console.log(message)
     data = JSON.parse(message);
+    console.log(data)
     if (!data.name) {
       throw new Error('Invalid message payload received.');
     }
@@ -36,6 +38,7 @@ app.post('/process-video', async (req, res) => {
   const inputFileName = data.name;
   const outputFileName = `processed-${inputFileName}`;
   const videoId = inputFileName.split('.')[0];
+  const videoTitle = inputFileName.split('.')[-2]
 
   if (!isVideoNew(videoId)) {
     return res
@@ -46,6 +49,7 @@ app.post('/process-video', async (req, res) => {
       id: videoId,
       uid: videoId.split('-')[0],
       status: 'processing',
+      title: videoTitle,
     });
   }
 
@@ -69,6 +73,7 @@ app.post('/process-video', async (req, res) => {
   await setVideo(videoId, {
     status: 'processed',
     filename: outputFileName,
+    title: videoTitle,
   });
 
   await Promise.all([

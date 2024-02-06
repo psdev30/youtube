@@ -1,3 +1,23 @@
 .thumbnail {
   margin: 10px;
 }
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.container {
+  flex: 1 0 21%; /* Adjust this value to control how many boxes per row */
+  margin: 5px; /* Adjust as needed */
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  margin-top: -5px;
+}

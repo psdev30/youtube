@@ -26,17 +26,19 @@ function NavBar() {
 
   return (
     <nav className={styles.nav}>
-      <Link href="/">
-        <span className={styles.logoContainer}>
-          <img
-            className={styles.logo}
-            src="/youtube-logo.svg"
-            alt="YouTube Logo"
-          />
-        </span>
-      </Link>
-      {user && <Upload />}
-      <SignIn user={user} />
+      <div className={styles.left}>
+        <Link href="/">
+          <span className={styles.logoContainer}>
+            <img
+              className={styles.logo}
+              src="/youtube-logo.svg"
+              alt="YouTube Logo"
+            />
+          </span>
+        </Link>
+      </div>
+      <div className={styles.center}>{user && <Upload />}</div>
+      <div className={styles.signIn}><SignIn user={user} /></div>
     </nav>
   );
 }
