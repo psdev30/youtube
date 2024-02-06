@@ -11,7 +11,7 @@ export default async function Home() {
     <Fragment>
       <main className={styles.main}>
         {videos.map((video) => (
-          <div>
+          <div key={video.id}>
             <Link
               className={styles.container}
               href={`/watch?v=${video.filename}`}
